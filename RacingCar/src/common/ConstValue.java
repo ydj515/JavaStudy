@@ -17,9 +17,9 @@ public class ConstValue {
     public static final String POSITION_STRING = "-";
     public static final String COLON = " : ";
 
-    public static final int movingStepCondition = 4;
-    public static final int forwardStep = 1;
-    public static final int stopStep = 0;
+    public static final int MOVING_STEP_CONDITION = 4;
+    public static final int FORWARD_STEP = 1;
+    public static final int STOP_STEP = 0;
 
     public static final int randomNumberRange = 10;
 

@@ -29,7 +29,7 @@ public class CarGameProgress {
 
     /* 한칸 갈지 말지 움직임 */
     private static int forwardStep() {
-        return (createdRandomNumber() >= ConstValue.movingStepCondition) ? ConstValue.forwardStep : ConstValue.stopStep;
+        return (createdRandomNumber() >= ConstValue.MOVING_STEP_CONDITION) ? ConstValue.FORWARD_STEP : ConstValue.STOP_STEP;
     }
 
     /* 랜덤 번호 생성 */
