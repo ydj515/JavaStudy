@@ -12,17 +12,13 @@ public class OutputView {
     }
 
     public static void printLottoTicket(LottoTickets lottoTickets) {
-        lottoTickets.getLottoTickets().forEach(i -> {
-            System.out.println(i.getLottoNumbers());
-        });
+        lottoTickets.getLottoTickets().forEach(i -> System.out.println(i.getLottoNumbers()));
     }
 
     public static void printStatistics(HashMap<Integer, Integer> resultHashMap, HashMap<Integer, Integer> prizeMap) {
         System.out.println("당첨통계");
         System.out.println("==================");
-        IntStream.range(3, resultHashMap.size() + 3).forEach(i -> {
-            System.out.println(i + "개 일치 (" + prizeMap.get(i) + "원)- " + resultHashMap.get(i) + "개");
-    });
+        IntStream.range(3, resultHashMap.size() + 3).forEach(i -> System.out.println(i + "개 일치 (" + prizeMap.get(i) + "원)- " + resultHashMap.get(i) + "개"));
     }
 
     public static void printYield(int purchaseLottoMoney, int prize) {

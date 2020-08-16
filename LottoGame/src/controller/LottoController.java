@@ -1,14 +1,14 @@
 package controller;
 
-import common.ConstantValue;
-import domain.*;
+import domain.LottoTicket;
+import domain.LottoTickets;
+import domain.Prize;
+import domain.Result;
+import lottoGame.LottoGameProgress;
 import view.InputView;
 import view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class LottoController {
 
@@ -16,26 +16,21 @@ public class LottoController {
 
         // 구매금액
         int purchaseLottoMoney = InputView.inputMoney();
-        int totalTicketNumber = purchaseLottoMoney / ConstantValue.LOTTO_TICKET_PRICE;
 
         // 수동으로 구매할 티켓 갯수
         int handMadeTicketNumber = InputView.inputHandMadeLottoTicketsNumber();
 
-        // 자동으로 구매할 티켓 갯수
-        int computerMadeTicketNumber = totalTicketNumber - handMadeTicketNumber;
-
-        List<LottoTicket> handMadeLottoTickets = new ArrayList<>();
-
         // 수동으로 구매하는 티켓 입력
         InputView.inputHandMadeTicketMessage();
 
-        IntStream.range(0, handMadeTicketNumber).forEach(i -> handMadeLottoTickets.add(new LottoTicket(InputView.inputHandMadeTicket())));
+        LottoGameProgress lottoGameProgress = new LottoGameProgress(purchaseLottoMoney, handMadeTicketNumber);
+        List<LottoTicket> handMadeLottoTickets = lottoGameProgress.getHandMadeLottoTickets();
 
         // ~개를 구매했습니다
-        OutputView.printHowManyTickets(handMadeTicketNumber, computerMadeTicketNumber);
+        OutputView.printHowManyTickets(lottoGameProgress.getHandMadeTicketNumber(), lottoGameProgress.getComputerMadeTicketNumber());
 
         // 자동과 수동으로 뽑은 로또 티켓모두
-        LottoTickets lottoTickets = new LottoTickets(handMadeLottoTickets, computerMadeTicketNumber);
+        LottoTickets lottoTickets = lottoGameProgress.makeLottoTickets(handMadeLottoTickets);
 
         // 구매 로또 티켓들
         OutputView.printLottoTicket(lottoTickets);

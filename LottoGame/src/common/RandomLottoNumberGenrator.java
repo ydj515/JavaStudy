@@ -12,7 +12,7 @@ public class RandomLottoNumberGenrator {
 
     public List<Integer> createLottoNumbers() {
 
-        Set<Integer> randomNumberSet = new HashSet<Integer>();
+        Set<Integer> randomNumberSet = new HashSet<>();
 
         while (randomNumberSet.size() != MAX_SIZE) {
             int randomNumber = (int) (Math.random() * MAX_RANDOM_NUMBER_LIMIT + 1);

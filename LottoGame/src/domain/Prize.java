@@ -1,19 +1,17 @@
 package domain;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.HashMap;
+import java.util.stream.IntStream;
 
 public class Prize {
 
-    private HashMap<Integer, Integer> prizeMap;
-    private HashMap<Integer, Integer> resultHashMap;
-
+    private static int sum = 0;
     private final int THREE_MATCH_PRIZE = 5000;
     private final int FOUR_MATCH_PRIZE = 50000;
     private final int FIVE_MATCH_PRIZE = 1500000;
     private final int SIX_MATCH_PRIZE = 2000000000;
-
-    private static int sum = 0;
+    private HashMap<Integer, Integer> prizeMap;
+    private HashMap<Integer, Integer> resultHashMap;
 
     public Prize(HashMap<Integer, Integer> resultHashMap) {
         prizeMap = new HashMap<>();
@@ -30,9 +28,7 @@ public class Prize {
     }
 
     public int getPrize() {
-        IntStream.range(3, prizeMap.size() + 3).forEach(i -> {
-            sum += prizeMap.get(i) * resultHashMap.get(i);
-        });
+        IntStream.range(3, prizeMap.size() + 3).forEach(i -> sum += prizeMap.get(i) * resultHashMap.get(i));
         return sum;
     }
 
