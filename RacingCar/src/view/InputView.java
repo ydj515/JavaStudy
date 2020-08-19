@@ -1,16 +1,18 @@
 package view;
 
 import common.ConstValue;
+import domain.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InputView {
 
-    public static List<String> inputCarName() {
+    public static List<Car> inputCarName() {
         System.out.println(ConstValue.INPUT_CAR_NAMES_QUESTION);
-        return new ArrayList<>(Arrays.asList(ConstValue.SCANNER.nextLine().split(ConstValue.SEPARATOR_COMMA)));
+        return Arrays.asList(ConstValue.SCANNER.nextLine().split(ConstValue.SEPARATOR_COMMA)).stream().map(Car::of).collect(Collectors.toList());
     }
 
     public static int inputTryNumAndReturnNum() {

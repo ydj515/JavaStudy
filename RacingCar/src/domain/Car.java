@@ -25,4 +25,8 @@ public class Car {
     public void movingOneStep(int position) {
         this.position += position;
     }
+
+    public boolean isWinner(int maxPosition) {
+        return position == maxPosition;
+    }
 }
