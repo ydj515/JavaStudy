@@ -48,7 +48,7 @@ public class InputViewTest {
         }
 
         return inputNumber;
-    }
+}
 
     @Test
     public void validIsPositiveNumberTest() {
