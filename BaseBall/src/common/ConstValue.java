@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ConstValue {
     public static final Scanner SCANNER = new Scanner(System.in);
 
-    public static final String INPUT_NUMBER = "숫자를 입력해주세요 : ";
+    public static final String INPUT_NUMBER = "숫자를 입력해주세요(띄워쓰기로) : ";
     public static final String RESTART_OR_END_GAME_STRING = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요 : ";
     public static final String SEPARATOR_BLANK = " ";
 

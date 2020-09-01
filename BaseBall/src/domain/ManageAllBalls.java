@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class ManageMentAllBalls {
+public class ManageAllBalls {
 
     private List<BaseBall> userInputBalls;
     private List<BaseBall> AnswerBalls;

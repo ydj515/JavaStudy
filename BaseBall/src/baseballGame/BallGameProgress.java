@@ -1,7 +1,7 @@
 package baseballGame;
 
 import common.ConstValue;
-import domain.ManageMentAllBalls;
+import domain.ManageAllBalls;
 import view.BaseBallGameInputView;
 import view.BaseBallGameOutputView;
 
@@ -19,7 +19,7 @@ public class BallGameProgress {
         this.continueGameFlag = continueGameFlag;
     }
 
-    public void startGame(ManageMentAllBalls allBalls) {
+    public void startGame(ManageAllBalls allBalls) {
 
         while (continueGameFlag) {
             List<Integer> userInputNumbers = BaseBallGameInputView.inputNumber();
@@ -32,7 +32,7 @@ public class BallGameProgress {
         }
     }
 
-    private void judge(ManageMentAllBalls managementBallsAndUserNumbers) {
+    private void judge(ManageAllBalls managementBallsAndUserNumbers) {
 
         int strike = managementBallsAndUserNumbers.countStrike();
         int ball = managementBallsAndUserNumbers.countBall();
