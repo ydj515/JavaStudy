@@ -1,22 +1,32 @@
 package view;
 
 
+import common.ConstValue;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertEquals;
 
 public class BaseBallGameInputViewTest {
-
-    private Scanner scanner;
 
     @Before
     public void setUp() {
         System.out.println("===Set up===");
-        scanner = new Scanner(System.in);
     }
 
     @Test
-    public void inputNumber() {
+    public void inputNumberTest() {
+        assertEquals(Arrays.asList(1, 2, 3), inputNumberConvertLogic("1 2 3"));
+        assertEquals(Arrays.asList(1), inputNumberConvertLogic("1"));
+        assertEquals(Arrays.asList(1, 2), inputNumberConvertLogic("1 2"));
+
+    }
+
+    private List<Integer> inputNumberConvertLogic(String inputNumber) {
+        return Arrays.asList(inputNumber.split(ConstValue.SEPARATOR_BLANK)).stream().map(Integer::new).collect(Collectors.toList());
     }
 }
