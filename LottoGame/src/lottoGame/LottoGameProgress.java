@@ -14,7 +14,6 @@ public class LottoGameProgress {
     private int purchaseLottoMoney; // 구매금액
     private int handMadeTicketNumber; // 수동으로 구매할 티켓 갯수
     private int computerMadeTicketNumber; // 자동으로 구매할 티켓 수
-    private int totalTicketNumber; // 총 로또표 갯수
 
     public LottoGameProgress(int purchaseLottoMoney, int handMadeTicketNumber) {
         this.purchaseLottoMoney = purchaseLottoMoney;
@@ -23,7 +22,7 @@ public class LottoGameProgress {
     }
 
     private void setInitGameCondition() {
-        totalTicketNumber = purchaseLottoMoney / ConstantValue.LOTTO_TICKET_PRICE;
+        int totalTicketNumber = purchaseLottoMoney / ConstantValue.LOTTO_TICKET_PRICE; // 총 로또표 갯수
         computerMadeTicketNumber = totalTicketNumber - handMadeTicketNumber;
     }
 
@@ -42,7 +41,6 @@ public class LottoGameProgress {
     public List<LottoTicket> getHandMadeLottoTickets() {
         List<LottoTicket> handMadeLottoTickets = new ArrayList<>();
         IntStream.range(0, handMadeTicketNumber).forEach(i -> handMadeLottoTickets.add(new LottoTicket(InputView.inputHandMadeTicket())));
-
         return handMadeLottoTickets;
     }
 }
