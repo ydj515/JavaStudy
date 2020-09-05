@@ -1,24 +1,23 @@
 package domain;
 
+import common.ConstantValue;
+
 import java.util.HashMap;
 import java.util.stream.IntStream;
 
 public class Prize {
 
     private static int sum = 0;
-    private final int THREE_MATCH_PRIZE = 5000;
-    private final int FOUR_MATCH_PRIZE = 50000;
-    private final int FIVE_MATCH_PRIZE = 1500000;
-    private final int SIX_MATCH_PRIZE = 2000000000;
+
     private HashMap<Integer, Integer> prizeMap;
     private HashMap<Integer, Integer> resultHashMap;
 
     public Prize(HashMap<Integer, Integer> resultHashMap) {
         prizeMap = new HashMap<>();
-        prizeMap.put(3, THREE_MATCH_PRIZE);
-        prizeMap.put(4, FOUR_MATCH_PRIZE);
-        prizeMap.put(5, FIVE_MATCH_PRIZE);
-        prizeMap.put(6, SIX_MATCH_PRIZE);
+        prizeMap.put(3, ConstantValue.THREE_MATCH_PRIZE);
+        prizeMap.put(4, ConstantValue.FOUR_MATCH_PRIZE);
+        prizeMap.put(5, ConstantValue.FIVE_MATCH_PRIZE);
+        prizeMap.put(6, ConstantValue.SIX_MATCH_PRIZE);
 
         this.resultHashMap = resultHashMap;
     }

@@ -1,16 +1,16 @@
 package domain;
 
-import common.RandomLottoNumberGenrator;
+import common.RandomLottoNumberGenerator;
 
 import java.util.List;
 
 public class LottoTicket {
 
-    private RandomLottoNumberGenrator randomLottoNumberGenrator;
+    private RandomLottoNumberGenerator randomLottoNumberGenerator;
     private List<Integer> lottoNumbers;
 
     public LottoTicket() {
-        randomLottoNumberGenrator = new RandomLottoNumberGenrator();
+        randomLottoNumberGenerator = new RandomLottoNumberGenerator();
         createLottoTicket();
     }
 
@@ -23,6 +23,6 @@ public class LottoTicket {
     }
 
     private void createLottoTicket() {
-        lottoNumbers = randomLottoNumberGenrator.createLottoNumbers();
+        lottoNumbers = randomLottoNumberGenerator.createLottoNumbers();
     }
 }
