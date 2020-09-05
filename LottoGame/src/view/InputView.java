@@ -2,7 +2,6 @@ package view;
 
 import common.ConstantValue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -12,33 +11,57 @@ public class InputView {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-
     public static int inputMoney() {
-        System.out.println("구입금액을 입력해주세요.");
-        return ConstantValue.SCANNER.nextInt();
+        String inputMoney;
+        do {
+            System.out.println(ConstantValue.INPUT_MONEY_QUESTION);
+            inputMoney = ConstantValue.SCANNER.nextLine();
+        } while (validIsNumberFormat(inputMoney) || !validThousandInputNumber(inputMoney));
+        return Integer.parseInt(inputMoney);
     }
 
     public static List<Integer> inputLastWeekWinningNumbers() {
-        System.out.println("지난주 당첨 번호를 입력해주세요.");
-        return new ArrayList<>(Arrays.asList(scanner.nextLine().split(ConstantValue.SEPERATOR)).stream().map(Integer::new).collect(Collectors.toList()));
+        System.out.println(ConstantValue.LAST_WEEK_PRIZE_NUMBER_INPUT_QUESTION);
+        return Arrays.stream(scanner.nextLine().split(ConstantValue.SEPARATOR)).map(Integer::new).collect(Collectors.toList());
     }
 
     public static int inputBonusBall() {
-        System.out.println("보너스 볼을 입력해 주세요.");
-        return ConstantValue.SCANNER.nextInt();
+        String inputBonusBall;
+        do {
+            System.out.println(ConstantValue.INPUT_BONUS_BALL_QUESTION);
+            inputBonusBall = ConstantValue.SCANNER.nextLine();
+        } while (validIsNumberFormat(inputBonusBall));
+        return Integer.parseInt(inputBonusBall);
     }
 
     public static int inputHandMadeLottoTicketsNumber() {
-        System.out.println("수동으로 구매할 로또 수를 입력해 주세요.");
-        return ConstantValue.SCANNER.nextInt();
+        String handLottoTicketNumber;
+        do {
+            System.out.println(ConstantValue.INPUT_HAND_LOTTO_TICKETS_NUMBER);
+            handLottoTicketNumber = ConstantValue.SCANNER.nextLine();
+        } while (validIsNumberFormat(handLottoTicketNumber));
+        return Integer.parseInt(handLottoTicketNumber);
+    }
+
+    private static boolean validIsNumberFormat(String inputNumber) { // 사실상 if else 문인감..?
+        try {
+            Integer.parseInt(inputNumber);
+            return false;
+        } catch (NumberFormatException e) {
+            System.out.println(ConstantValue.NUMBER_FORMAT_EXCEPTION_MESSAGE);
+            return true;
+        }
+    }
+
+    private static boolean validThousandInputNumber(String inputMoney) {
+        return Integer.parseInt(inputMoney) % 1000 == 0;
     }
 
     public static void inputHandMadeTicketMessage() {
-        ConstantValue.CLEAR_BUFFER();
-        System.out.println("수동으로 구매할 번호를 입력해 주세요.");
+        System.out.println(ConstantValue.INPUT_HAND_LOTTO_TICKETS);
     }
 
     public static List<Integer> inputHandMadeTicket() {
-        return new ArrayList<>(Arrays.asList(scanner.nextLine().split(ConstantValue.SEPERATOR)).stream().map(Integer::new).collect(Collectors.toList()));
+        return Arrays.stream(scanner.nextLine().split(ConstantValue.SEPARATOR)).map(Integer::new).collect(Collectors.toList());
     }
 }
