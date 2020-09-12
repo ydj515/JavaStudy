@@ -38,12 +38,12 @@ public class CarGameProgress {
     }
 
     private static String calculatePosition(int n) {
-        String countPosition = "";
+        StringBuilder countPosition = new StringBuilder();
 
         for (int i = 0; i < n; i++) {
-            countPosition += ConstValue.POSITION_STRING;
+            countPosition.append(ConstValue.POSITION_STRING);
         }
 
-        return countPosition;
+        return countPosition.toString();
     }
 }
