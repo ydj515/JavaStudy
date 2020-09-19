@@ -42,6 +42,7 @@ public class BallGameProgress {
         validThreeStrike(strike);
     }
 
+    /* 3스트라이크인지 판단 */
     private void validThreeStrike(int strike) {
         if (strike == ConstValue.THREE_STRIKE) {
             continueGameFlag = false;

@@ -6,7 +6,7 @@ import java.util.*;
 
 public class CreateThreeRandomNumber {
 
-
+    /* 랜덤으로 숫자 생성 */
     public static List<Integer> createRandomNumbers(int maxBall) {
 
         Set<Integer> randomNumberSet = new HashSet<>();

@@ -27,6 +27,6 @@ public class BaseBallGameInputViewTest {
     }
 
     private List<Integer> inputNumberConvertLogic(String inputNumber) {
-        return Arrays.asList(inputNumber.split(ConstValue.SEPARATOR_BLANK)).stream().map(Integer::new).collect(Collectors.toList());
+        return Arrays.stream(inputNumber.split(ConstValue.SEPARATOR_BLANK)).map(Integer::new).collect(Collectors.toList());
     }
 }
